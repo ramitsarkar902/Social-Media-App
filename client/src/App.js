@@ -5,9 +5,14 @@ import {
   Redirect,
 } from "react-router-dom";
 import { useContext } from "react";
+import Home from "./pages/home/Home";
 
 function App() {
-  return <>hello</>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;
