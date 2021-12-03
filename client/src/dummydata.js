@@ -3,51 +3,61 @@ export const Users = [
     id: 1,
     profilePicture: "assets/person/1.jpeg",
     userName: "walter white",
+    online: true,
   },
   {
     id: 2,
     profilePicture: "assets/person/2.jpeg",
     userName: "walter black",
+    online: true,
   },
   {
     id: 3,
     profilePicture: "assets/person/3.jpeg",
     userName: "walter purple",
+    online: true,
   },
   {
     id: 4,
     profilePicture: "assets/person/4.jpeg",
     userName: "walter green",
+    online: false,
   },
   {
     id: 5,
     profilePicture: "assets/person/5.jpeg",
     userName: "walter yellow",
+    online: true,
   },
   {
     id: 6,
     profilePicture: "assets/person/6.jpeg",
     userName: "walter red",
+    online: true,
   },
   {
     id: 7,
     profilePicture: "assets/person/7.jpeg",
     userName: "walter orange",
+    online: false,
   },
   {
     id: 8,
     profilePicture: "assets/person/8.jpeg",
     userName: "walter violet",
+    online: true,
   },
   {
     id: 9,
     profilePicture: "assets/person/9.jpeg",
     userName: "walter chrome",
+    online: false,
   },
   {
     id: 10,
     profilePicture: "assets/person/10.jpeg",
     userName: "walter rainbow",
+    online: true,
   },
 ];
 export const Posts = [
