@@ -34,7 +34,7 @@ function Profile() {
           <div className="profileRightButtom">
             <Feed />
             <Rightbar profile />
-            {/* error needs to be debugged */}
+            {/* error needs to be debugged and fixed */}
           </div>
         </div>
       </div>
