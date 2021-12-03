@@ -1,15 +1,15 @@
 import React from "react";
 import Feed from "../../components/feeds/Feed";
-/* add sidebar and rightbar too */
 import Topbar from "../../components/topbar/Topbar";
-import { Rightbar } from "@material-ui/icons";
 import "./profile.css";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Rightbar from "../../components/rightbar/Rightbar";
 function Profile() {
   return (
     <>
       <Topbar />
       <div className="profile">
-        {/*  add sidebar */}
+        <Sidebar />
         <div className="profileRight">
           <div className="profileRightTop">
             <div className="cover">
@@ -33,7 +33,8 @@ function Profile() {
           </div>
           <div className="profileRightButtom">
             <Feed />
-            {/*  include the right bar here */}
+            <Rightbar profile />
+            {/* error needs to be debugged */}
           </div>
         </div>
       </div>
