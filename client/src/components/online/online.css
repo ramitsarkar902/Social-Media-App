@@ -1,0 +1,41 @@
+.rightbarFriend {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.rightbarUsername {
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 500;
+}
+.rightbarProfileImgContainer {
+  margin-right: 10px;
+  position: relative;
+}
+.rightbarProfileImage {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+}
+.rightbarOnline {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: limegreen;
+  position: absolute;
+  top: -1px;
+  right: 0;
+  border: 2px solid white;
+}
+.rightbarOffline {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: grey;
+  position: absolute;
+  top: 2px;
+  right: 0;
+  border: 2px solid white;
+}
