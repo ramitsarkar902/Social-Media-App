@@ -48,6 +48,7 @@ function Rightbar({ profile }) {
           </div>
         </div>
         <div className="userFriendsLower">
+          {/* need to make it dynamic after api usage */}
           <h4 className="rightbarTitle">User friends</h4>
           <div className="rightbarFollowings">
             <div className="rightbarFollowing">
