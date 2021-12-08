@@ -1,5 +1,88 @@
 .rightbar {
-  display: flex;
   flex: 1.5;
+}
+
+.birthdayContainer {
+  position: relative;
+  top: 50px;
+  display: flex;
+  align-items: center;
   flex-direction: column;
+}
+.birthdayHead {
+  display: flex;
+  justify-content: space-evenly;
+}
+.birthdayImg {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+.birthdayText {
+  position: relative;
+  top: 10px;
+  font-weight: 300;
+  font-size: 15px;
+}
+.rightbarFriends {
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+}
+.rightbarFriendsList {
+  position: relative;
+
+  right: 30px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* profile rightbar styling */
+.rightbarTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.rightbarInfo {
+  margin-bottom: 30px;
+}
+
+.rightbarInfoItem {
+  margin-bottom: 10px;
+}
+
+.rightbarInfoKey {
+  font-weight: 500;
+  margin-right: 15px;
+  color: #555;
+}
+
+.rightbarInfoValue {
+  font-weight: 300;
+}
+
+.rightbarFollowings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.rightbarFollowing {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.rightbarFollowingImg {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.userFriendsLower {
+  margin-right: 30px;
 }

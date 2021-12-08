@@ -33,7 +33,7 @@ function Profile() {
           </div>
           <div className="profileRightButtom">
             <Feed />
-            <Rightbar profile={false} />
+            <Rightbar profile={true} />
           </div>
         </div>
       </div>
