@@ -13,7 +13,7 @@ import Test from "./pages/Test";
 function App() {
   return (
     <>
-      <Profile />
+      <Test />
     </>
   );
 }
