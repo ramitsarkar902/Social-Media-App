@@ -1,9 +1,9 @@
 import React from "react";
-import Feed from "../../components/feeds/Feed";
 import Topbar from "../../components/topbar/Topbar";
 import "./profile.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Rightbar from "../../components/rightbar/Rightbar";
+import Feed from "../../components/feeds/Feed";
 function Profile() {
   return (
     <>

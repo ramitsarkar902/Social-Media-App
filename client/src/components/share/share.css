@@ -1,5 +1,5 @@
 .share {
-  width: 100%;
+  width: 90%;
   height: 180px;
   border-radius: 10px;
   box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.68);
@@ -23,10 +23,15 @@
 
 .shareInput {
   border: none;
-  width: 80%;
+  width: 100%;
+  height: 80px;
+  font-weight: bold;
+  font-variant: large-caps;
+  font-size: 1.5rem;
 }
 .shareInput:focus {
   outline: none;
+  font-weight: normal;
 }
 
 .shareHr {
@@ -48,7 +53,7 @@
 
 .shareIcon {
   font-size: 18px;
-  margin-right: 3px;
+  margin-right: 5px;
 }
 
 .shareOptionText {
