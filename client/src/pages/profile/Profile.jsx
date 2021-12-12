@@ -5,6 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Feed from "../../components/feeds/Feed";
 function Profile() {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <>
       <Topbar />
@@ -15,7 +16,7 @@ function Profile() {
             <div className="cover">
               <img
                 className="coverImage"
-                src="assets/post/3.jpeg"
+                src={`${PF}post/3.jpeg`}
                 alt="profile cover pic"
               />
               <img
