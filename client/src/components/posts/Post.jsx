@@ -4,6 +4,7 @@ import { Users } from "../../dummydata.js";
 import { MoreVert } from "@material-ui/icons";
 
 function Post({ item }) {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <div className="post">
       <div className="postWrapper">
@@ -28,12 +29,12 @@ function Post({ item }) {
         </div>
         <div className="postCenter">
           <span className="postText">{item?.desc}</span>
-          <img className="postImg" src={item.photo} alt="" />
+          <img className="postImg" src={PF + item.photo} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <img className="likeIcon" src="assets/like.png" alt="" />
-            <img className="likeIcon" src="assets/heart.png" alt="" />
+            <img className="likeIcon" src={`${PF}like.png`} alt="" />
+            <img className="likeIcon" src={`${PF}heart.png`} alt="" />
 
             <span className="postLikeCounter">{item.like} likes</span>
           </div>
