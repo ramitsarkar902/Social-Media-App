@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Topbar from "../../components/topbar/Topbar";
 import "./profile.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Feed from "../../components/feeds/Feed";
+import axios from "axios";
 function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`/users?username=ramit`);
+      setUser(res.data);
+    };
+    fetchUser();
+  }, []);
   return (
     <>
       <Topbar />
@@ -26,15 +36,14 @@ function Profile() {
               />
             </div>
             <div className="profileInfo">
-              <h3 className="profileInfoName">1234@Hawk</h3>
-              <span className="profileInfoDesc">
-                this has the profile description and introducing text
-              </span>
+              <h3 className="profileInfoName">{user.username}</h3>
+              <span className="profileInfoDesc">{user.desc}</span>
             </div>
           </div>
           <div className="profileRightButtom">
-            <Feed />
-            <Rightbar profile={true} />
+            <Feed username="ramit" />
+            <Rightbar profile={true} user={user} />
+            {/* need modifications later */}
           </div>
         </div>
       </div>
