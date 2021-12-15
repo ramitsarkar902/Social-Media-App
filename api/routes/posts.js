@@ -102,4 +102,15 @@ router.get("/", async (req, res) => {
     res.status(403).json("Not admin!");
   }
 });
+
+//get all posts of a particular user
+router.get("/profile/:username", async (req, res) => {
+  try {
+    const currentUser = await User.findOne({ username: req.params.username });
+    const posts = await Post.find({ userId: currentUser._id });
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 module.exports = router;

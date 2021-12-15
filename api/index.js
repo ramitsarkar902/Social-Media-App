@@ -18,7 +18,7 @@ mongoose.connect(
   }
 );
 
-const API_URL = "/api/v2/"; //for the api url call
+const API_URL = "/api/"; //for the api url call
 
 //middleware
 app.use(express.json());
