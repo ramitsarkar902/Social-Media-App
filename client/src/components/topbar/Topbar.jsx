@@ -7,7 +7,10 @@ function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">DotBook</span>
+        {/* implement darkmode in future */}
+        <Link className="links" to="/">
+          <span className="logo">DotBook</span>
+        </Link>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
