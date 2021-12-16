@@ -44,7 +44,7 @@ function Login() {
               className="loginInput"
             />
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               minLength={3}
               ref={password}
