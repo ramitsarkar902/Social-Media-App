@@ -11,6 +11,7 @@ import Sidebar from "./components/sidebar/Sidebar";
 import Test from "./pages/Test";
 import Login from "./pages/login/Login";
 import "./app.css";
+import Register from "./pages/register/Register";
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/register"></Route>
+        <Route path="/register">
+          <Register />
+        </Route>
         <Route path="/profile/:username">
           <Profile />
         </Route>
