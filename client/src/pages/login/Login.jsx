@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import "./login.css";
+import { loginCall } from "../../apiCalls";
+import { AuthContext } from "../../context/AuthContext";
+import { CircularProgress } from "@material-ui/core";
+/* import axios from "axios"; */
 function Login() {
+  let email = useRef();
+  let password = useRef();
+  const { isFetching, user, dispatch } = useContext(AuthContext);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    loginCall(
+      { email: email.current.value, password: password.current.value },
+      dispatch
+    );
+  };
+  /* useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.post("/auth/login", userCredential);
+      console.log(res.data);
+    };
+    fetchUser();
+  }, []); */
+
+  console.log(user);
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -11,15 +35,34 @@ function Login() {
           </span>
         </div>
         <div className="loginRight">
-          <div className="loginBox">
-            <input type="text" placeholder="Email" className="loginInput" />
-            <input type="text" placeholder="Password" className="loginInput" />
-            <button className="loginButton">Log In</button>
+          <form className="loginBox" onSubmit={handleClick}>
+            <input
+              type="text"
+              placeholder="Email"
+              ref={email}
+              required
+              className="loginInput"
+            />
+            <input
+              type="text"
+              placeholder="Password"
+              minLength={3}
+              ref={password}
+              required
+              className="loginInput"
+            />
+            <button className="loginButton" type="submit" disabled={isFetching}>
+              {isFetching ? (
+                <CircularProgress color="white" size="20px" />
+              ) : (
+                "Log In"
+              )}
+            </button>
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">
               Create a new Account
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </div>
