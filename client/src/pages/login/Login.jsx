@@ -28,13 +28,13 @@ function Login() {
   return (
     <div className="login">
       <div className="loginWrapper">
-        <div className="loginLeft">
+        <div className="loginTop">
           <h4 className="loginLogo">DotBook</h4>
           <span className="loginDesc">
             Connect with your friends and the world at large on DotBook.
           </span>
         </div>
-        <div className="loginRight">
+        <div className="loginBottom">
           <form className="loginBox" onSubmit={handleClick}>
             <input
               type="text"
@@ -59,8 +59,9 @@ function Login() {
               )}
             </button>
             <span className="loginForgot">Forgot Password?</span>
+            {/* need to add forget pw logic in api */}
             <button className="loginRegisterButton">
-              Create a new Account
+              Create a new Account{/* need to add new uder register logic */}
             </button>
           </form>
         </div>

@@ -16,8 +16,8 @@
   justify-content: center;
 }
 
-.loginLeft,
-.loginRight {
+.loginTop,
+.loginBottom {
   flex: 1;
   display: flex;
   flex-direction: column;
