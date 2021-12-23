@@ -4,9 +4,12 @@ import { loginCall } from "../../apiCalls";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
 /* import axios from "axios"; */
+import { useHistory } from "react-router-dom";
 function Login() {
   let email = useRef();
   let password = useRef();
+  const history = useHistory();
+
   const { isFetching, user, dispatch } = useContext(AuthContext);
 
   const handleClick = (e) => {
@@ -24,7 +27,10 @@ function Login() {
     fetchUser();
   }, []); */
 
-  console.log(user);
+  const handleRegister = () => {
+    history.push("/register");
+  };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -60,7 +66,7 @@ function Login() {
             </button>
             <span className="loginForgot">Forgot Password?</span>
             {/* need to add forget pw logic in api */}
-            <button className="loginRegisterButton">
+            <button onClick={handleRegister} className="loginRegisterButton">
               Create a new Account{/* need to add new uder register logic */}
             </button>
           </form>
