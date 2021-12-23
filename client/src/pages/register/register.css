@@ -40,6 +40,10 @@
   height: 50px;
   border-radius: 10px;
   border: 1px solid gray;
+  margin-bottom: 15px;
   font-size: 18px;
   padding-left: 20px;
+}
+.loginButton {
+  margin-bottom: 10px;
 }

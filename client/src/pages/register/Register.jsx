@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { Redirect } from "react-router-dom";
 export default function Register() {
   const username = useRef();
   const email = useRef();
@@ -27,6 +28,10 @@ export default function Register() {
         console.log(err);
       }
     }
+  };
+
+  const handleLogin = () => {
+    history.push("/login");
   };
 
   return (
@@ -68,7 +73,9 @@ export default function Register() {
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <button className="loginRegisterButton">Log into Account</button>
+            <button onClick={handleLogin} className="loginRegisterButton">
+              Log into Account
+            </button>
           </form>
         </div>
       </div>
