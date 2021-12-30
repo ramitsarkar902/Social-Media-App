@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
 });
 //get a user
 
-/* router.get("/", async (req, res) => {
+router.get("/", async (req, res) => {
   const userId = req.query.userId;
   const username = req.query.username;
   try {
@@ -75,7 +75,7 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-}); */
+});
 
 //follow a user
 router.put("/:id/follow", async (req, res) => {
@@ -120,7 +120,7 @@ router.put("/:id/unfollow", async (req, res) => {
 });
 
 //get all users
-router.get("/", async (req, res) => {
+/* router.get("/", async (req, res) => {
   try {
     await User.find({}).then(function (users) {
       res.send(users);
@@ -128,6 +128,6 @@ router.get("/", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}); */
 
 module.exports = router;
