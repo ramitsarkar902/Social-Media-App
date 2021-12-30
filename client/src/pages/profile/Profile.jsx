@@ -14,6 +14,7 @@ function Profile() {
     const fetchUser = async () => {
       const res = await axios.get(`/users?username=${params.username}`);
       setUser(res.data);
+      console.log(res.data);
     };
     fetchUser();
   }, [params.username]);
@@ -33,7 +34,7 @@ function Profile() {
               <img
                 className="userImage"
                 src={user.profilePicture}
-                alt="profileimg"
+                alt="profileimage"
               />
             </div>
             <div className="profileInfo">
