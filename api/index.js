@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const multer = require("multer");
 
 dotenv.config();
 
@@ -24,6 +25,24 @@ const API_URL = "/api/"; //for the api url call
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+
+const upload = multer({ storage });
+app.post("api/upload", upload.single("file"), async (req, res) => {
+  try {
+    return res.status(200).json("File uploaded!");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 app.use(`${API_URL}users`, userRoute);
 app.use(`${API_URL}auth`, authRoute);
