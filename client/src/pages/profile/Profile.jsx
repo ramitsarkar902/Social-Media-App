@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import Topbar from "../../components/topbar/Topbar";
 import "./profile.css";
+import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
-import Rightbar from "../../components/rightbar/Rightbar";
 import Feed from "../../components/feeds/Feed";
-import { useParams } from "react-router";
+import Rightbar from "../../components/rightbar/Rightbar";
+import { useEffect, useState } from "react";
 import axios from "axios";
-function Profile() {
+import { useParams } from "react-router";
+
+export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
-  const params = useParams();
+  const username = useParams().username;
+
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${params.username}`);
+      const res = await axios.get(`/users?username=${username}`);
       setUser(res.data);
-      console.log(res.data);
     };
     fetchUser();
-  }, [params.username]);
+  }, [username]);
+
   return (
     <>
       <Topbar />
@@ -25,32 +27,29 @@ function Profile() {
         <Sidebar />
         <div className="profileRight">
           <div className="profileRightTop">
-            <div className="cover">
+            <div className="profileCover">
               <img
-                className="coverImage"
+                className="profileCoverImg"
                 src={user.coverPicture || `${PF}post/3.jpeg`}
-                alt="profile cover pic"
+                alt=""
               />
               <img
-                className="userImage"
-                src={user.profilePicture}
-                alt="profileimage"
+                className="profileUserImg"
+                src={user.profilePicture || `${PF}person/5.png"`}
+                alt=""
               />
             </div>
             <div className="profileInfo">
-              <h3 className="profileInfoName">{user.username}</h3>
+              <h4 className="profileInfoName">{user.username}</h4>
               <span className="profileInfoDesc">{user.desc}</span>
             </div>
           </div>
-          <div className="profileRightButtom">
-            <Feed username={params.username} />
-            <Rightbar profile={true} user={user} />
-            {/* need modifications later */}
+          <div className="profileRightBottom">
+            <Feed username={username} />
+            <Rightbar user={user} />
           </div>
         </div>
       </div>
     </>
   );
 }
-
-export default Profile;

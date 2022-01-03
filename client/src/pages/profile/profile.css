@@ -1,53 +1,50 @@
 .profile {
   display: flex;
 }
+
 .profileRight {
   flex: 9;
-  justify-content: space-between;
 }
 
-.cover {
-  position: relative;
+.profileCover {
   height: 320px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
-.coverImage {
+.profileCoverImg {
   width: 100%;
+  height: 250px;
   object-fit: cover;
-  height: 280px;
 }
-.userImage {
+
+.profileUserImg {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  object-fit: cover;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-  top: 200px;
+  top: 150px;
   border: 3px solid white;
-  object-fit: cover;
 }
 
 .profileInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   justify-content: center;
-  top: 50px;
 }
+
 .profileInfoName {
-  font-size: 25px;
+  font-size: 24px;
 }
+
 .profileInfoDesc {
-  padding-top: 10px;
-  font-weight: 500;
+  font-weight: 300;
 }
-.profileRightButtom {
-  position: relative;
-  top: 50px;
+
+.profileRightBottom {
   display: flex;
 }

@@ -1,9 +1,21 @@
 import React from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
+import { logoutCall } from "../../apiCalls";
 import { useContext } from "react";
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { AuthContext } from "../../context/AuthContext";
+import { useHistory } from "react-router-dom";
 function Topbar() {
+  const { user, dispatch } = useContext(AuthContext);
+  const history = useHistory();
+  const handleClick = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("user");
+    logoutCall(dispatch);
+    history.push("/login");
+  };
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -38,6 +50,9 @@ function Topbar() {
           <div className="topbarIconItem">
             <Notifications />
             <span className="topbarIconBadge">3</span>
+          </div>
+          <div className="topbarIconItem">
+            <ExitToAppIcon onClick={handleClick} />
           </div>
         </div>
       </div>

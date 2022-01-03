@@ -1,57 +1,81 @@
-import React, { useState, useEffect } from "react";
 import "./post.css";
-import { Users } from "../../dummydata.js";
 import { MoreVert } from "@material-ui/icons";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-function Post({ item }) {
-  const [like, setLike] = useState(item.likes.length);
-  const [user, setUser] = useState({});
+import { AuthContext } from "../../context/AuthContext";
 
+export default function Post({ post }) {
+  const [like, setLike] = useState(post.likes.length);
+  const [isLiked, setIsLiked] = useState(false);
+  const [user, setUser] = useState({});
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const { user: currentUser } = useContext(AuthContext);
+
+  useEffect(() => {
+    setIsLiked(post.likes.includes(currentUser._id));
+  }, [currentUser._id, post.likes]);
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${item.userId}`);
+      const res = await axios.get(`/users?userId=${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
-  }, [item.userId]);
+  }, [post.userId]);
+
+  const likeHandler = () => {
+    try {
+      axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+    } catch (err) {}
+    setLike(isLiked ? like - 1 : like + 1);
+    setIsLiked(!isLiked);
+  };
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <Link to={`profile/${user.username}`}>
-              <img className="profileImage" src={user.profilePicture} alt="" />
+            <Link to={`/profile/${user.username}`}>
+              <img
+                className="postProfileImg"
+                src={user.profilePicture || `${PF}person/5.png"`}
+                alt=""
+              />
             </Link>
-
             <span className="postUsername">{user.username}</span>
-            <span className="postDate">{format(item.createdAt)}</span>
+            <span className="postDate">{format(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
-            <MoreVert className="icon" />
+            <MoreVert />
           </div>
         </div>
         <div className="postCenter">
-          <span className="postText">{item?.desc}</span>
-          <img className="postImg" src={PF + item.img} alt="" />
+          <span className="postText">{post?.desc}</span>
+          <img className="postImg" src={PF + post.img} alt="" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
-            <img className="likeIcon" src={`${PF}like.png`} alt="" />
-            <img className="likeIcon" src={`${PF}heart.png`} alt="" />
-
-            <span className="postLikeCounter">{like} likes</span>
+            <img
+              className="likeIcon"
+              src={`${PF}like.png`}
+              onClick={likeHandler}
+              alt=""
+            />
+            <img
+              className="likeIcon"
+              src={`${PF}heart.png`}
+              onClick={likeHandler}
+              alt=""
+            />
+            <span className="postLikeCounter">{like} people like it</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText">{item.comment} comments</span>
+            <span className="postCommentText">{post.comment} comments</span>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default Post;

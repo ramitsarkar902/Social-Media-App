@@ -11,7 +11,7 @@ function Home() {
       <Topbar />
       <div className="homeContainer">
         <Sidebar />
-        <Feed />
+        <Feed username="ramit" />
         <Rightbar profile={false} />
       </div>
     </div>
